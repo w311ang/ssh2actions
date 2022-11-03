@@ -45,11 +45,15 @@ tmate -S ${TMATE_SOCK} wait tmate-ready
 # Print connection info
 TMATE_SSH=$(tmate -S ${TMATE_SOCK} display -p '#{tmate_ssh}')
 TMATE_WEB=$(tmate -S ${TMATE_SOCK} display -p '#{tmate_web}')
+TMATE_ADDRESS=$(echo ${TMATE_SSH} | sed 's/ssh //')
 MSG="
 *GitHub Actions - tmate session info:*
 
 ⚡ *CLI:*
 \`${TMATE_SSH}\`
+
+⚡ *JuiceSSH:*
+\`${TMATE_ADDRESS}\`
 
 🔗 *URL:*
 ${TMATE_WEB}
