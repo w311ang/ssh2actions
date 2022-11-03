@@ -80,11 +80,15 @@ ERRORS_LOG=$(grep "command failed" ${LOG_FILE})
 
 if [[ -e "${LOG_FILE}" && -z "${ERRORS_LOG}" ]]; then
     SSH_CMD="$(grep -oE "tcp://(.+)" ${LOG_FILE} | sed "s/tcp:\/\//ssh ${USER}@/" | sed "s/:/ -p /")"
+    JUICESSH_ADDRESS="$(grep -oE "tcp://(.+)" ${LOG_FILE} | sed "s/tcp:\/\//${USER}@/")"
     MSG="
 *GitHub Actions - ngrok session info:*
 
 ⚡ *CLI:*
 \`${SSH_CMD}\`
+
+⚡ *JuiceSSH:*
+\`${JUICESSH_ADDRESS}\
 
 🔔 *TIPS:*
 Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
