@@ -88,7 +88,7 @@ if [[ -e "${LOG_FILE}" && -z "${ERRORS_LOG}" ]]; then
 \`${SSH_CMD}\`
 
 ⚡ *JuiceSSH:*
-\`${JUICESSH_ADDRESS}\
+\`${JUICESSH_ADDRESS}\`
 
 🔔 *TIPS:*
 Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
